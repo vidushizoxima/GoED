@@ -1,0 +1,60 @@
+/* DemoLogin.css */
+
+.otp-input-container {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+}
+
+.otp-input-container input {
+    width: 48px;
+    height: 56px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 700;
+    border-radius: 12px;
+    border: 2px solid var(--gray-200);
+    outline: none;
+    color: var(--navy);
+    transition: all 0.2s;
+}
+
+.otp-input-container input:focus {
+    border-color: var(--teal);
+    box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.1);
+}
+
+.demo-login-wrapper {
+    min-height: calc(100vh - 80px);
+    background-color: var(--off-white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 64px 24px;
+}
+
+.demo-login-card {
+    background: #fff;
+    border-radius: 24px;
+    padding: 48px;
+    width: 100%;
+    max-width: 480px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+}
+
+.resend-button {
+    font-weight: 600;
+    background: none;
+    border: none;
+    transition: color 0.2s;
+}
+
+.resend-button:disabled {
+    color: var(--gray-400);
+    cursor: not-allowed;
+}
+
+.resend-button:not(:disabled) {
+    color: var(--teal);
+    cursor: pointer;
+}
