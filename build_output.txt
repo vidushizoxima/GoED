@@ -1,0 +1,101 @@
+﻿[36mvite v5.4.21 [32mbuilding for development...[36m[39m
+transforming...
+[32mΓ£ô[39m 1786 modules transformed.
+npx : [31mx[39m Build 
+failed in 3.18s
+At line:1 char:1
++ npx vite build --mode 
+development 2>&1 | 
+Out-File -FilePath 
+"build_ou ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~
+    + CategoryInfo         
+     : NotSpecified: ([3  
+  1mx[39m Build failed    
+ in 3.18s:String) [], R    
+emoteException
+    + FullyQualifiedErrorI 
+   d : NativeCommandError
+ 
+[31merror during build:
+[31msrc/pages/MockUniversi
+ty.jsx (2:70): "Instagram" 
+is not exported by "node_mo
+dules/lucide-react/dist/esm
+/lucide-react.js", 
+imported by "src/pages/Mock
+University.jsx".[31m
+file: [36mD:/goedai-websit
+e/goedai-website/src/pages/
+MockUniversity.jsx:2:70[31
+m
+[33m
+1: import React, { 
+useEffect, useState } from 
+'react';
+2: import { GraduationCap, 
+Users, Calendar, Award, 
+MessageCircle, Phone, 
+Instagram, Facebook, Zap, 
+ChevronDown } from 'l...
+                           
+                           
+                   ^
+3: import 
+'./MockUniversity.css';
+[31m
+    at getRollupError (file
+:///D:/goedai-website/goeda
+i-website/node_modules/roll
+up/dist/es/shared/parseAst.
+js:406:41)
+    at error (file:///D:/go
+edai-website/goedai-website
+/node_modules/rollup/dist/e
+s/shared/parseAst.js:402:42
+)
+    at Module.error (file:/
+//D:/goedai-website/goedai-
+website/node_modules/rollup
+/dist/es/shared/node-entry.
+js:17380:16)
+    at 
+Module.traceVariable (file:
+///D:/goedai-website/goedai
+-website/node_modules/rollu
+p/dist/es/shared/node-entry
+.js:17813:29)
+    at 
+ModuleScope.findVariable (f
+ile:///D:/goedai-website/go
+edai-website/node_modules/r
+ollup/dist/es/shared/node-e
+ntry.js:15403:39)
+    at 
+FunctionScope.findVariable 
+(file:///D:/goedai-website/
+goedai-website/node_modules
+/rollup/dist/es/shared/node
+-entry.js:5676:38)
+    at FunctionBodyScope.fi
+ndVariable (file:///D:/goed
+ai-website/goedai-website/n
+ode_modules/rollup/dist/es/
+shared/node-entry.js:5676:3
+8)
+    at Identifier.bind (fil
+e:///D:/goedai-website/goed
+ai-website/node_modules/rol
+lup/dist/es/shared/node-ent
+ry.js:5450:40)
+    at CallExpression.bind 
+(file:///D:/goedai-website/
+goedai-website/node_modules
+/rollup/dist/es/shared/node
+-entry.js:2828:28)
+    at CallExpression.bind 
+(file:///D:/goedai-website/
+goedai-website/node_modules
+/rollup/dist/es/shared/node
+-entry.js:12512:15)[39m

@@ -1,0 +1,245 @@
+.explore-page {
+  padding-top: 80px;
+  min-height: 100vh;
+  background: var(--off-white);
+}
+
+.explore-hero {
+  padding: 80px 0;
+  text-align: center;
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-dark) 100%);
+  color: var(--white);
+  position: relative;
+  overflow: hidden;
+}
+
+.explore-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 70% 30%, rgba(13, 148, 136, 0.15) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.explore-hero .section-title {
+  color: var(--white);
+  margin-bottom: 24px;
+}
+
+.explore-hero .section-subtitle {
+  color: var(--gray-300);
+  max-width: 700px;
+}
+
+.explore-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+  margin-top: 64px;
+}
+
+.explore-content {
+  text-align: left;
+}
+
+.explore-image-container {
+  position: relative;
+  border-radius: var(--radius-2xl);
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+}
+
+.explore-image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.agent-card {
+  background: var(--white);
+  border-radius: var(--radius-2xl);
+  padding: 40px;
+  box-shadow: 0 10px 30px rgba(15, 32, 68, 0.05);
+  border: 1px solid var(--gray-200);
+  margin-top: -100px;
+  position: relative;
+  z-index: 10;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.agent-features {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 32px;
+}
+
+.feature-item {
+  text-align: center;
+  padding: 20px;
+  border-radius: var(--radius-lg);
+  background: var(--gray-50);
+  transition: transform 0.3s ease;
+}
+
+.feature-item:hover {
+  transform: translateY(-5px);
+}
+
+.feature-icon {
+  font-size: 24px;
+  margin-bottom: 12px;
+  display: block;
+}
+
+.feature-label {
+  font-weight: 700;
+  color: var(--navy);
+  display: block;
+  margin-bottom: 4px;
+}
+
+.feature-desc {
+  font-size: 13px;
+  color: var(--gray-500);
+}
+
+/* Modal Styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(15, 32, 68, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  backdrop-filter: blur(8px);
+  padding: 20px;
+}
+
+.modal-content {
+  background: var(--white);
+  border-radius: var(--radius-2xl);
+  width: 100%;
+  max-width: 480px;
+  padding: 48px;
+  position: relative;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  animation: modalAppear 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes modalAppear {
+  from { opacity: 0; transform: scale(0.95) translateY(20px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.modal-close {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: var(--gray-400);
+  cursor: pointer;
+  line-height: 1;
+}
+
+.modal-title {
+  font-family: var(--font-display);
+  font-size: 32px;
+  color: var(--navy);
+  margin-bottom: 12px;
+}
+
+.modal-desc {
+  color: var(--gray-500);
+  margin-bottom: 32px;
+  font-size: 15px;
+}
+
+.phone-input-group {
+  margin-bottom: 24px;
+}
+
+.phone-input-group label {
+  display: block;
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--navy);
+  margin-bottom: 8px;
+}
+
+.input-with-prefix {
+  display: flex;
+  align-items: center;
+  border: 2px solid var(--gray-200);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: border-color 0.3s;
+}
+
+.input-with-prefix:focus-within {
+  border-color: var(--teal);
+}
+
+.prefix {
+  background: var(--gray-100);
+  padding: 14px 16px;
+  color: var(--gray-600);
+  font-weight: 600;
+  border-right: 2px solid var(--gray-200);
+}
+
+.phone-input {
+  flex: 1;
+  border: none;
+  padding: 14px 16px;
+  font-size: 16px;
+  font-weight: 500;
+  outline: none;
+}
+
+.success-state {
+  text-align: center;
+  padding: 20px 0;
+}
+
+.success-icon {
+  width: 64px;
+  height: 64px;
+  background: var(--teal-bg);
+  color: var(--teal);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  margin: 0 auto 24px;
+}
+
+@media (max-width: 768px) {
+  .explore-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .agent-features {
+    grid-template-columns: 1fr;
+  }
+  .agent-card {
+    margin-top: 40px;
+    padding: 24px;
+  }
+  .modal-content {
+    padding: 32px;
+  }
+}
