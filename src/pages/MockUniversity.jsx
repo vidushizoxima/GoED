@@ -330,7 +330,7 @@ export default function MockUniversity() {
               {[
                 { n: '98%', l: 'Contact Rate' },
                 { n: '3×', l: 'Conversion Lift' },
-                { n: '< 5 min', l: 'Response Time' },
+                { n: 'Instant', l: 'Response Time' },
                 { n: '3 Weeks', l: 'Go-Live' },
               ].map(s => (
                 <div key={s.l} className="uni-goed-stat">

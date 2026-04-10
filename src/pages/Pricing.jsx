@@ -39,8 +39,8 @@ const pricingPlans = [
     icon: <BarChart size={24} />,
     description: 'Advanced Admissions Growth',
     features: [
-      'Website & Social Media Agents',
       '10K Engagements',
+      'Website & Social Media Agents',
       'Influencer & Admission Tracking',
       'Advanced Analytics',
       'CRM Sales Funnel Visibility'
