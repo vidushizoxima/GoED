@@ -46,6 +46,35 @@ export default function MockUniversity() {
       if (document.body.contains(script)) {
         document.body.removeChild(script);
       }
+      
+      // Cleanup widget UI to prevent bleeding into other pages
+      if (window.mainChatbotWidget) {
+        if (typeof window.mainChatbotWidget.destroy === 'function') {
+          window.mainChatbotWidget.destroy();
+        } else if (typeof window.mainChatbotWidget.hide === 'function') {
+          window.mainChatbotWidget.hide();
+        }
+      }
+
+      // Hard removal of common widget containers just in case it lacks a destroy method
+      // Specifically target floating iframes or divs added to the body end
+      const floatingWidgets = Array.from(document.body.children).filter(el => {
+        const style = window.getComputedStyle(el);
+        // typical chatbot widgets have fixed positions, high z-indexes and are inserted at body end
+        return (style.position === 'fixed' || style.position === 'absolute') 
+          && (el.tagName === 'IFRAME' || el.tagName === 'DIV')
+          && (el.id.toLowerCase().includes('chat') || el.className.toLowerCase().includes('chat') || parseInt(style.zIndex) > 9000);
+      });
+      floatingWidgets.forEach(widget => {
+        // Exclude the main site chatbot if it exists (assuming it might have different ID)
+        // Actually, we're navigating away to another SPA route. If main widget is needed, 
+        // it mounts itself. So it's safe to clean up likely offenders here.
+        if (!widget.id.includes('root') && !widget.id.includes('app')) {
+          try { widget.remove(); } catch (e) {}
+        }
+      });
+      
+      delete window.mainChatbotWidget;
     };
   }, []);
 

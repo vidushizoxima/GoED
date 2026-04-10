@@ -115,7 +115,7 @@ export default function RegisterWebinar() {
               We look forward to seeing you there!
             </p>
             <div className="success-actions">
-              <Link to="/" className="btn btn-navy">Back to Home</Link>
+              <Link to="/demo/university" className="btn btn-navy">Back to Home</Link>
               <button className="btn btn-secondary" onClick={() => window.print()}>Save Copy</button>
             </div>
           </div>
