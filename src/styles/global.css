@@ -320,6 +320,11 @@ ul, ol {
 @media (max-width: 768px) {
   .chatbot-widget-container {
     z-index: 10000000 !important;
+    pointer-events: none !important;
+  }
+
+  .chatbot-widget, .chatbot-toggle-btn {
+    pointer-events: auto !important;
   }
 
   .chatbot-widget {
@@ -330,7 +335,7 @@ ul, ol {
     height: 70vh !important;
     max-height: 550px !important;
     right: 16px !important;
-    bottom: 90px !important;
+    bottom: 80px !important;
     left: auto !important;
     top: auto !important;
     border-radius: 16px !important;
@@ -338,22 +343,33 @@ ul, ol {
     box-shadow: 0 12px 48px rgba(0, 52, 88, 0.25) !important;
   }
 
+  /* Specific fix for Mock University wider widget */
+  #main-chatbot-widget-container .chatbot-widget {
+    width: calc(100vw - 32px) !important;
+  }
+
   /* Full Screen Mode for Small Mobiles (<= 500px) */
   @media (max-width: 500px) {
-    .chatbot-widget {
+    .chatbot-widget,
+    #main-chatbot-widget-container .chatbot-widget {
       width: 100vw !important;
       height: 100vh !important;
+      height: 100dvh !important;
       max-width: 100vw !important;
       max-height: 100vh !important;
+      max-height: 100dvh !important;
       right: 0 !important;
-      bottom: 0 !important;
+      top: 0 !important;
+      bottom: auto !important;
       border-radius: 0 !important;
       display: none; /* Controlled by style attribute from JS */
     }
 
     /* Force display when style is set by widget logic */
     .chatbot-widget[style*="display: flex"],
-    .chatbot-widget[style*="display: block"] {
+    .chatbot-widget[style*="display: block"],
+    #main-chatbot-widget-container .chatbot-widget[style*="display: flex"],
+    #main-chatbot-widget-container .chatbot-widget[style*="display: block"] {
       display: flex !important;
     }
 
@@ -365,10 +381,10 @@ ul, ol {
 
     /* Floating toggle button fixed position */
     .chatbot-toggle-btn {
-      bottom: 24px !important;
-      right: 20px !important;
-      width: 64px !important;
-      height: 64px !important;
+      bottom: 70px !important;
+      right: 16px !important;
+      width: 44px !important;
+      height: 44px !important;
       z-index: 10000001 !important;
     }
   }
@@ -383,16 +399,11 @@ ul, ol {
   .chatbot-toggle-btn {
     bottom: 16px !important;
     right: 16px !important;
-    width: 60px !important;
-    height: 60px !important;
+    width: 44px !important;
+    height: 44px !important;
     position: fixed !important;
     z-index: 10000001 !important;
     background-color: #fff !important;
     box-shadow: 0 8px 32px rgba(0, 52, 88, 0.3) !important;
-  }
-
-  /* Specific fix for Mock University wider widget */
-  #main-chatbot-widget-container .chatbot-widget {
-    width: calc(100vw - 32px) !important;
   }
 }
