@@ -23,18 +23,50 @@ export default function Contact() {
     setError(null);
 
     try {
+      const fullMessage = `
+Name: ${form.name}
+Email: ${form.email}
+Phone: ${form.phone || 'N/A'}
+Institution: ${form.institution || 'N/A'}
+Role: ${form.role || 'N/A'}
+
+User Message:
+${form.message || 'None'}
+      `.trim();
+
       const templateParams = {
         name: form.name,
         email: form.email,
         phone: form.phone,
         institution: form.institution,
         role: form.role,
-        message: form.message,
+        message: fullMessage,
         source: 'Main Contact Page Schedule Demo',
         submitted_at: new Date().toLocaleString()
       };
 
       await emailjs.send('service_4byp487', 'template_fk9mvtt', templateParams);
+      
+      try {
+        await fetch(import.meta.env.VITE_WEBINAR_SHEET_API, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            sheet: 'contact',
+            name: form.name,
+            email: form.email,
+            number: form.phone || '',
+            org: form.institution || '',
+            role: form.role || '',
+            questions: form.message || ''
+          })
+        });
+      } catch (sheetErr) {
+        console.error('Sheet API Error:', sheetErr);
+      }
+
       console.log('Main Contact request sent successfully');
       setSubmitted(true);
     } catch (err) {
