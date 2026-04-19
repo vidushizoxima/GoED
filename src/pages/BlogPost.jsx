@@ -13,6 +13,17 @@ export default function BlogPost() {
     window.scrollTo(0, 0);
   }, [slug]);
 
+  const shareOnLinkedIn = () => {
+    const url = encodeURIComponent(window.location.href);
+    window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${url}`, '_blank');
+  };
+
+  const shareOnTwitter = () => {
+    const url = encodeURIComponent(window.location.href);
+    const text = encodeURIComponent(post?.title || 'Check out this article from GoEd AI');
+    window.open(`https://twitter.com/intent/tweet?url=${url}&text=${text}`, '_blank');
+  };
+
   if (!post) {
     return (
       <div style={{ paddingTop: 160, minHeight: '60vh', textAlign: 'center' }}>
@@ -121,8 +132,8 @@ export default function BlogPost() {
               <div className="blog-share-card">
                 <h4>Share this article</h4>
                 <div className="blog-share-btns">
-                  <button className="blog-share-btn">LinkedIn</button>
-                  <button className="blog-share-btn">Twitter</button>
+                  <button className="blog-share-btn" onClick={shareOnLinkedIn}>LinkedIn</button>
+                  <button className="blog-share-btn" onClick={shareOnTwitter}>Twitter</button>
                 </div>
               </div>
             </div>

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Globe, MessageCircle, Phone, ArrowRight, X, Play, Send, Zap } from 'lucide-react';
+import { Globe, MessageCircle, Phone, ArrowRight, X, Play, Send } from 'lucide-react';
 import emailjs from '@emailjs/browser';
 import './LiveDemo.css';
 
@@ -23,9 +23,8 @@ const EMAILJS_PUBLIC_KEY  = 'Fp7d4aeU85LQ-e0DK';
 
 export default function LiveDemo() {
   const [isCallingModalOpen, setIsCallingModalOpen] = useState(false);
-  const [isBroadcastModalOpen, setIsBroadcastModalOpen] = useState(false);
   const [phoneNumber, setPhoneNumber] = useState('');
-  const [userName, setUserName] = useState('');
+
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [error, setError] = useState(null);
@@ -45,17 +44,12 @@ export default function LiveDemo() {
     setError(null);
   };
 
-  const handleOpenBroadcastModal = () => {
-    setIsBroadcastModalOpen(true);
-    setIsSuccess(false);
-    setError(null);
-  };
+
 
   const closeModal = () => {
     setIsCallingModalOpen(false);
-    setIsBroadcastModalOpen(false);
     setPhoneNumber('');
-    setUserName('');
+
     setIsSuccess(false);
     setError(null);
   };
@@ -98,59 +92,7 @@ export default function LiveDemo() {
     }
   };
 
-  const handleSendBroadcast = async (e) => {
-    e.preventDefault();
-    if (!phoneNumber || phoneNumber.length < 10) {
-      setError('Please enter a valid 10-digit phone number.');
-      return;
-    }
-    setIsSubmitting(true);
-    setError(null);
-    try {
-      const now = new Date();
-      const timeStr = now.toLocaleString('en-IN', { dateStyle: 'medium', timeStyle: 'short' });
 
-      // 1. Send to Sheet API
-      const sheetApiUrl = import.meta.env.VITE_BROADCAST_SHEET_API;
-      if (sheetApiUrl) {
-        try {
-          await fetch(sheetApiUrl, {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-              sheet: "broadcast",
-              name: userName,
-              number: phoneNumber,
-            }),
-          });
-        } catch (apiErr) {
-          console.error('Sheet API error:', apiErr);
-        }
-      }
-
-      // 2. Send email via EmailJS
-      await emailjs.send(
-        EMAILJS_SERVICE_ID,
-        EMAILJS_TEMPLATE_ID,
-        {
-          name: userName || 'GoEd AI Website Visitor',
-          number: `+91${phoneNumber}`,
-          message: `WhatsApp Broadcast demo requested from GoEd AI website. Name: ${userName}, Phone: +91${phoneNumber}`,
-          email: 'no-reply@goedai.com',
-          time: timeStr,
-        }
-      );
-
-      setIsSuccess(true);
-    } catch (err) {
-      console.error('Broadcast error:', err);
-      setError('Something went wrong. Please try again or contact us directly.');
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
 
   return (
     <div className="live-demo-page">
@@ -189,18 +131,15 @@ export default function LiveDemo() {
               </div>
               <h2 className="demo-card__title">WhatsApp Agent</h2>
               <p className="demo-card__desc">
-                Automate student engagement on their favourite app. 
-                <strong> Broadcast hyper-personalised messages to purchased/aggregator lead lists, 
-                drip campaigns, and AI handles all replies instantly.</strong>
+                Engage students where they are most active. Our WhatsApp agent handles 
+                admissions queries, provides course details, and captures lead data 
+                instantly, 24/7. Experience a seamless chat-to-conversion journey.
               </p>
               <div className="demo-card__action">
                 <div className="whatsapp-actions">
                   <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="demo-card__btn demo-card__btn--whatsapp">
                     Test Chat Agent <ArrowRight size={20} />
                   </a>
-                  <button onClick={handleOpenBroadcastModal} className="demo-card__btn demo-card__btn--broadcast">
-                    Try WhatsApp Broadcast <Zap size={20} />
-                  </button>
                 </div>
               </div>
             </div>
@@ -288,62 +227,7 @@ export default function LiveDemo() {
         </div>
       )}
 
-      {/* Broadcast Modal */}
-      {isBroadcastModalOpen && (
-        <div className="modal-overlay">
-          <div className="modal-content">
-            <button className="modal-close" onClick={closeModal}>&times;</button>
-            {!isSuccess ? (
-              <div className="modal-body">
-                <h2 className="modal-title">Test AI Broadcasting</h2>
-                <p className="modal-desc">Enter your number to see how AI sends hyper-personalised broadcast messages to your lead lists.</p>
-                <form onSubmit={handleSendBroadcast}>
-                  <div className="phone-input-group">
-                    <label>Full Name</label>
-                    <div className="phone-input-wrap">
-                      <input 
-                        type="text" 
-                        placeholder="e.g. Rahul Sharma"
-                        value={userName}
-                        onChange={(e) => setUserName(e.target.value)}
-                        required
-                        autoFocus
-                      />
-                    </div>
-                  </div>
-                  <div className="phone-input-group" style={{ marginTop: '16px' }}>
-                    <label>Phone Number</label>
-                    <div className="phone-input-wrap">
-                      <span className="phone-prefix">+91</span>
-                      <input 
-                        type="tel" 
-                        placeholder="98765 43210"
-                        value={phoneNumber}
-                        onChange={(e) => setPhoneNumber(e.target.value.replace(/\D/g, '').slice(0, 10))}
-                        required
-                      />
-                    </div>
-                    {error && <p className="error-text">{error}</p>}
-                  </div>
-                  <button type="submit" className="btn btn-navy" disabled={isSubmitting}>
-                    {isSubmitting ? 'Sending Request...' : 'Try Broadcasting \u2192'}
-                  </button>
-                </form>
-              </div>
-            ) : (
-              <div className="success-state">
-                <div className="success-circle">✓</div>
-                <h2 className="modal-title">Broadcast Initiated!</h2>
-                <p className="modal-desc">
-                  AI will now send you personalized message so you can see how broadcasting works. 
-                  Your request has been sent to our sales team for verification.
-                </p>
-                <button className="btn btn-primary" onClick={closeModal}>Awesome!</button>
-              </div>
-            )}
-          </div>
-        </div>
-      )}
+
     </div>
   );
 }

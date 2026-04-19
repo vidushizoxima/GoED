@@ -26,7 +26,7 @@ export default function Footer() {
 
           <div className="footer__col">
             <h4>Resources</h4>
-            <Link to="/live-demos">Watch Demos</Link>
+
             <Link to="/insights">Events & Webinars</Link>
             <Link to="/insights">Blog</Link>
             <Link to="/about">About Zoxima</Link>

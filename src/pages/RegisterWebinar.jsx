@@ -10,7 +10,7 @@ const EMAILJS_PUBLIC_KEY = 'Fp7d4aeU85LQ-e0DK';
 
 const webinarInfo = {
   title: 'AI Powered Admissions — Reimagining the GenZ Era with Agentic AI',
-  date: 'Wednesday, 23rd April 2025',
+  date: 'Thursday, 23rd April 2026',
   time: '3:00 PM – 4:00 PM IST',
   location: 'Online',
   description: 'Join industry veterans and technology leaders as they discuss the transformation of higher education admissions through Agentic AI. Learn how to reach GenZ students where they live — on WhatsApp, Instagram, and through instant AI voice conversations.'

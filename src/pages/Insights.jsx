@@ -5,7 +5,7 @@ import { blogData } from '../data/blogData';
 const events = [
   {
     title: 'AI Powered Admissions — Reimagining the GenZ Era with Agentic AI',
-    date: 'Wednesday, 23rd April 2025',
+    date: 'Thursday, 23rd April 2026',
     time: '3:00 PM – 4:00 PM IST',
     speakers: 'Dr. Rajneesh Chauhan (Director, IMT Nagpur), Mr. Vikas Aggarwal (Industry Veteran & Former CEO, IMT Distance Education), Mr. Jagpreet Singh (Director Technology, Zoxima Solutions), Mr. Rajeev Sood (Executive Director, Zoxima Solutions)',
     topics: [

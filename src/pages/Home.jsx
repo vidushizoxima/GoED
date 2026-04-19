@@ -292,7 +292,7 @@ export default function Home() {
             </div>
 
             <div className="event-banner__meta">
-              <strong>Wednesday, 23rd April 2025</strong>
+              <strong>Thursday, 23rd April 2026</strong>
               <span>3:00 PM – 4:00 PM IST</span>
               <span>Online</span>
             </div>
