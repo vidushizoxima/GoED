@@ -40,7 +40,7 @@ To fix this, institutions must stop relying on humans for the *Generate, Capture
 3. **Automated Scoring:** The AI evaluates the response. Did they answer? Did they ask about fees? Are they browsing the B.Tech page?
 4. **Human Handoff:** Only *after* a lead is warmed up and scored should it appear on a counsellor's dashboard.
 
-By implementing an Agentic AI layer, institutions like IMT have seen contact rates jump to 98% and conversion rates multiply by 3x. The 88% loss isn't inevitable—it's just what happens when you use human timing for a digital problem.
+By implementing an Agentic AI layer, institutions like IMT have seen contact rates jump to 100% and conversion rates multiply by 3x. The 88% loss isn't inevitable—it's just what happens when you use human timing for a digital problem.
     `
   },
   {

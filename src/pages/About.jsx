@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const team = [
   { name: 'Jagpreet Singh', role: 'Founder / CEO', desc: 'Director Technology, Zoxima Solutions (GoEdAI). Available for senior Director-level conversations where credibility anchor is needed.' },
   { name: 'Rajeev Sood', role: 'Executive Director', desc: 'Enterprise sales and pricing decisions. Drives commercial strategy and institution partnerships.' },
-  { name: 'Varun Khattar', role: 'Education Sales', desc: 'Owns outreach and new institution relationships. First point of contact for admissions teams. varun@goedai.in' },
+  { name: 'Varun Khatter', role: 'Education Sales', desc: 'Owns outreach and new institution relationships. First point of contact for admissions teams.' },
 ];
 
 const stats = [

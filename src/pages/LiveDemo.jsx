@@ -173,7 +173,7 @@ export default function LiveDemo() {
               <ul className="demo-card__features">
                 <li>Natural human tonality</li>
                 <li>Instant CRM sync</li>
-                <li>98%+ contact rate</li>
+                <li>100% contact rate</li>
               </ul>
               <div className="demo-card__action">
                 <button onClick={handleOpenCallingModal} className="demo-card__btn demo-card__btn--calling">

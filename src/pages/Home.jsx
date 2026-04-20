@@ -140,7 +140,7 @@ export default function Home() {
         <h1 className="hero__title">Every lead <em>found.</em><br />Every lead <em>engaged.</em><br />Every lead <em>converted.</em></h1>
         <p className="hero__sub">So your <strong>counsellors convert 3× more</strong> — and your Director sees every number, live.</p>
         <div className="hero__actions"><Link to="/demo" className="btn btn-primary">Live Demo</Link><a href="#videos" className="btn btn-secondary">Watch It Work</a></div>
-        <div className="hero__proof">{[{ n: '98%', l: 'Contact rate' }, { n: '3×', l: 'Conversion lift' }, { n: 'Instant', l: 'Response time' }, { n: '3 wks', l: 'Go-live' }].map(p => (<div key={p.l} className="hero__proof-item"><div className="hero__proof-num">{p.n}</div><div className="hero__proof-label">{p.l}</div></div>))}</div>
+        <div className="hero__proof">{[{ n: '100%', l: 'Contact rate' }, { n: '3×', l: 'Conversion lift' }, { n: 'Instant', l: 'Response time' }, { n: '3 wks', l: 'Go-live' }].map(p => (<div key={p.l} className="hero__proof-item"><div className="hero__proof-num">{p.n}</div><div className="hero__proof-label">{p.l}</div></div>))}</div>
       </div></div>
     </section>
     <section className="hero-dashboard-wrapper">
@@ -153,7 +153,7 @@ export default function Home() {
 
     <section className="impact-section"><div className="container"><div className="impact__inner">
       <FadeIn><div className="impact__label">The Result</div><h2 className="impact__title">Stop chasing leads.<br />Start scaling enrollment.</h2><p>GoEd AI recovers the "lost hours" where leads typically go cold. By providing instant engagement across every channel, you turn your budget into actual enrollments.</p><p>It’s not just about speed. It’s about 360° efficiency at every stage of the student journey.</p></FadeIn>
-      <FadeIn delay={0.2}><div className="impact__stats">{[{ n: '3×', l: 'Qualified leads (same budget)' }, { n: '2×', l: 'Conversions in sales' }, { n: 'Instant', l: 'Engagement across channels' }, { n: '↑ 2×', l: 'Quality & Revenue per lead' }].map(s => (<div key={s.n} className="impact__stat"><div className="impact__stat-num">{s.n}</div><div className="impact__stat-label">{s.l}</div></div>))}</div></FadeIn>
+      <FadeIn delay={0.2}><div className="impact__stats">{[{ n: '3×', l: 'Qualified leads (same budget)' }, { n: '3×', l: 'Conversions in sales' }, { n: 'Instant', l: 'Engagement across channels' }, { n: '↑ 3×', l: 'Quality & Revenue per lead' }].map(s => (<div key={s.n} className="impact__stat"><div className="impact__stat-num">{s.n}</div><div className="impact__stat-label">{s.l}</div></div>))}</div></FadeIn>
     </div></div></section>
 
     <section className="section" id="lifecycle"><div className="container"><div className="section-header"><div className="section-label">How GoEd AI works</div><h2 className="section-title">One platform. Every stage. Every role.</h2><p className="section-subtitle">From generating the lead to enrolling the student — across every channel, 24×7.</p></div><FadeIn><div className="lifecycle">{lifecycle.map(s => (<Link to={`/how-it-works#stage-${s.n}`} key={s.n} className="lifecycle__stage" style={{ cursor: 'pointer', textDecoration: 'none', color: 'inherit' }}><div className={`lifecycle__num lifecycle__num--${s.n}`}>{s.n}</div><div className="lifecycle__name">{s.name}</div><div className="lifecycle__desc">{s.desc}</div></Link>))}</div></FadeIn></div></section>

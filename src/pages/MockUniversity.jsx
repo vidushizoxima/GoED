@@ -360,7 +360,7 @@ ${form.message || 'None'}
             </div>
             <div className="uni-goed-banner__stats">
               {[
-                { n: '98%', l: 'Contact Rate' },
+                { n: '100%', l: 'Contact Rate' },
                 { n: '3×', l: 'Conversion Lift' },
                 { n: 'Instant', l: 'Response Time' },
                 { n: '3 Weeks', l: 'Go-Live' },
@@ -383,7 +383,7 @@ ${form.message || 'None'}
               <div className="uni-goed-proof">
                 <div className="uni-goed-proof__item">
                   <strong>Proven at IMT Nagpur</strong>
-                  <span>98% contact rate (was 40%), 3× conversion improvement, 41% cost reduction</span>
+                  <span>100% contact rate (was 40%), 3× conversion improvement, 41% cost reduction</span>
                 </div>
               </div>
             </div>
