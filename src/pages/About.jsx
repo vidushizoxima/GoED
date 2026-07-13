@@ -10,7 +10,7 @@ const team = [
 const stats = [
   { num: '7.5 yrs', label: 'Average client engagement tenure', color: 'var(--navy)' },
   { num: 'Azure AI', label: 'Microsoft stack native', color: 'var(--teal)' },
-  { num: 'DPDP', label: 'Fully compliant', color: 'var(--amber-dark)' },
+  { num: 'Azure AI', label: 'Enterprise security stack', color: 'var(--amber-dark)' },
   { num: 'India + US', label: 'Operations across two countries', color: 'var(--navy)' },
 ];
 
@@ -66,7 +66,7 @@ export default function About() {
           <div style={{ background: 'var(--off-white)', border: '1px solid var(--gray-200)', borderRadius: 16, padding: 32, textAlign: 'center', marginBottom: 48 }}>
             <h3 style={{ fontFamily: 'var(--font-display)', fontSize: 22, color: 'var(--navy)', marginBottom: 12 }}>Built on Microsoft Azure AI</h3>
             <p style={{ fontSize: 15, color: 'var(--gray-600)', lineHeight: 1.6, maxWidth: 600, margin: '0 auto' }}>
-              Enterprise-grade reliability, security, and scalability. DPDP-compliant with full audit trail, conversation logs, and document repository. Not a startup experiment — a production platform built on enterprise infrastructure.
+              Enterprise-grade reliability, security, and scalability. Full audit trail, conversation logs, and document repository built in. Not a startup experiment — a production platform built on enterprise infrastructure.
             </p>
           </div>
 

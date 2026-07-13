@@ -28,11 +28,11 @@ export default function Results() {
           </div>
           <div style={{ maxWidth: 800, margin: '0 auto' }}>
             <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 28, color: 'var(--navy)', marginBottom: 16 }}>The challenge</h2>
-            <p style={{ fontSize: 16, color: 'var(--gray-600)', lineHeight: 1.7, marginBottom: 24 }}>IMT had 10 counsellors on Meritto CRM, Zoho for accounts, a separate Student ERP, and Nia — a basic chatbot that could only capture name and number. Systems were disintegrated with no bidirectional data flow. Leads from 10 PM went unanswered. The registrar worked in complete isolation.</p>
+            <p style={{ fontSize: 16, color: 'var(--gray-600)', lineHeight: 1.7, marginBottom: 24 }}>IMT had 10 counsellors on Meritto CRM, Zoho for accounts, and Nia — a basic chatbot that could only capture name and number. Systems were disintegrated with no bidirectional data flow. Leads from 10 PM went unanswered. The registrar worked in complete isolation.</p>
 
             <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 28, color: 'var(--navy)', marginBottom: 16 }}>What GoEd AI did</h2>
-            <p style={{ fontSize: 16, color: 'var(--gray-600)', lineHeight: 1.7, marginBottom: 12 }}>Phase 1 (3 weeks): Replaced Nia entirely. Connected social media AI (Facebook + Instagram DMs), WhatsApp agent, website chat. Integrated with Meritto for AI lead scoring and counsellor nudges. Knowledge base indexed in 2 minutes.</p>
-            <p style={{ fontSize: 16, color: 'var(--gray-600)', lineHeight: 1.7, marginBottom: 24 }}>Phase 2 (4 weeks): Added Zoho bidirectional sync, document collection and OCR verification, fee automation, registrar ERP profile creation, university portal automation, and advanced analytics dashboards.</p>
+            <p style={{ fontSize: 16, color: 'var(--gray-600)', lineHeight: 1.7, marginBottom: 12 }}>Phase 1 (1 week): Replaced Nia entirely. Connected social media AI (Facebook + Instagram DMs), WhatsApp agent, website chat. Integrated with Meritto for AI lead scoring and counsellor nudges. Knowledge base indexed in 2 minutes.</p>
+            <p style={{ fontSize: 16, color: 'var(--gray-600)', lineHeight: 1.7, marginBottom: 24 }}>Phase 2 (4 weeks): Added Zoho bidirectional sync, document collection, fee automation, university portal automation, and advanced analytics dashboards.</p>
 
             <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 28, color: 'var(--navy)', marginBottom: 16 }}>The result</h2>
             <blockquote style={{ fontFamily: 'var(--font-display)', fontSize: 22, color: 'var(--navy)', lineHeight: 1.5, borderLeft: '3px solid var(--amber)', paddingLeft: 20, margin: '24px 0' }}>

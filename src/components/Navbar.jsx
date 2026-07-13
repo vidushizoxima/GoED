@@ -20,8 +20,10 @@ export default function Navbar() {
   const navLinks = [
     { to: '/', label: 'Home' },
     { to: '/insights', label: 'Insights' },
+    { to: '/features', label: 'Features' },
     { to: '/pricing', label: 'Pricing' },
     { to: '/contact', label: 'Contact' },
+    { to: '/privacy-policy', label: 'Privacy Policy' },
   ];
 
   return (
@@ -41,18 +43,20 @@ export default function Navbar() {
               {link.label}
             </Link>
           ))}
-          <Link to="/demo" className="btn btn-navy btn-sm">
-            Live Demo
-          </Link>
         </div>
 
-        <button
-          className={`navbar__mobile-btn ${mobileOpen ? 'navbar__mobile-btn--open' : ''}`}
-          onClick={() => setMobileOpen(!mobileOpen)}
-          aria-label="Toggle menu"
-        >
-          <span /><span /><span />
-        </button>
+        <div className="navbar__end">
+          <Link to="/demo" className="btn btn-navy btn-sm navbar__cta">
+            Try for Free
+          </Link>
+          <button
+            className={`navbar__mobile-btn ${mobileOpen ? 'navbar__mobile-btn--open' : ''}`}
+            onClick={() => setMobileOpen(!mobileOpen)}
+            aria-label="Toggle menu"
+          >
+            <span /><span /><span />
+          </button>
+        </div>
       </div>
     </nav>
   );

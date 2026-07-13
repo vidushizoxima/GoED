@@ -21,7 +21,7 @@ Admissions teams are typically dealing with 5 or more disconnected systems:
 * Facebook/Instagram Meta Suite (where DMs arrive)
 * WhatsApp Business (where counsellors try to follow up)
 * A CRM like Meritto or NoPaperForms (where data is supposed to live)
-* An ERP system (for finalizing student profiles)
+
 
 When a lead comes in at 4:00 PM on a Friday, it might sit in an aggregator portal until Monday morning. By the time a counsellor manually extracts it, assigns it, and makes a phone call, 72 hours have passed. In the Gen Z era, a 72-hour delay is equivalent to throwing your marketing budget in the trash. The lead has already moved on, contacted a competitor, and lost interest.
 

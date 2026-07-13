@@ -70,7 +70,7 @@ export default function LiveDemo() {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          to_number: `+91${phoneNumber}`
+          phone_number: `+91${phoneNumber}`
         }),
       });
 

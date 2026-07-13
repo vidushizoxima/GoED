@@ -38,8 +38,7 @@ export default function Explore() {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          to_number: `+91${phoneNumber}`,
-          public_url: import.meta.env.VITE_PUBLIC_URL,
+          phone_number: `+91${phoneNumber}`,
         }),
       });
 

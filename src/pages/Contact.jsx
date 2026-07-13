@@ -127,7 +127,7 @@ ${form.message || 'None'}
                     onBlur={(e) => e.target.style.borderColor = 'var(--gray-200)'}
                   />
                   <input
-                    type="text" name="institution" placeholder="Institution name"
+                    type="text" name="institution" placeholder="Institution name *" required
                     value={form.institution} onChange={handleChange}
                     style={inputStyle}
                     onFocus={(e) => e.target.style.borderColor = 'var(--teal)'}

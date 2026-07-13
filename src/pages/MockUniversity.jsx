@@ -155,8 +155,7 @@ ${form.message || 'None'}
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          to_number: `+91${callingNumber}`,
-          public_url: import.meta.env.VITE_PUBLIC_URL
+          phone_number: `+91${callingNumber}`
         })
       });
 
@@ -249,7 +248,7 @@ ${form.message || 'None'}
     { icon: '📞', title: 'Outbound AI Calls', desc: 'AI calls leads proactively — introduces the institution, answers questions, books counsellor callbacks.' },
     { icon: '📊', title: 'Live Director Dashboard', desc: 'Real-time funnel: enquiries, applications, conversions per course — with AI Monday Insight every week.' },
     { icon: '📋', title: 'Document Collection', desc: 'WhatsApp bot collects documents and runs OCR verification in parallel — no manual follow-up.' },
-    { icon: '🔗', title: 'CRM & ERP Integration', desc: 'Connects with Meritto, Zoho, and Student ERP. Bidirectional sync. No system replacement needed.' },
+    { icon: '🔗', title: 'CRM Integration', desc: 'Connects with Meritto and Zoho. Bidirectional sync. No system replacement needed.' },
   ];
 
   return (
@@ -297,47 +296,6 @@ ${form.message || 'None'}
 
 
 
-      {/* Upcoming Event / Webinar Section */}
-      <section className="uni-event-section">
-        <div className="container">
-          <div className="uni-event-banner">
-            <div className="uni-event-banner__left">
-              <div className="uni-event-badge">Upcoming Webinar</div>
-              <h3 className="uni-event-banner__title">AI Powered Admissions — Reimagining the GenZ Era with Agentic AI</h3>
-              <div className="uni-speaker-highlight">
-                <div className="uni-speaker-card chief">
-                  <div className="uni-speaker-avatar">DR</div>
-                  <div className="uni-speaker-info">
-                    <strong className="uni-speaker-name">Dr. Rajneesh Chauhan</strong>
-                    <span className="uni-speaker-title">Director, IMT Nagpur</span>
-                  </div>
-                </div>
-                <div className="uni-speaker-others">
-                  <div className="uni-speaker-other">Mr. Vikas Aggarwal</div>
-                  <div className="uni-speaker-other">Mr. Jagpreet Singh</div>
-                  <div className="uni-speaker-other">Mr. Rajeev Sood</div>
-                </div>
-              </div>
-              <div className="uni-event-banner__meta">
-                <span className="uni-event-meta-item">
-                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2" /><line x1="16" y1="2" x2="16" y2="6" /><line x1="8" y1="2" x2="8" y2="6" /><line x1="3" y1="10" x2="21" y2="10" /></svg>
-                  <strong>Thursday, 23rd April 2026</strong>
-                </span>
-                <span className="uni-event-meta-item">
-                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" /></svg>
-                  3:00 PM – 4:00 PM IST
-                </span>
-                <span className="uni-event-meta-item">
-                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 8h1a4 4 0 0 1 0 8h-1" /><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z" /><line x1="6" y1="1" x2="6" y2="4" /><line x1="10" y1="1" x2="10" y2="4" /><line x1="14" y1="1" x2="14" y2="4" /></svg>
-                  Online
-                </span>
-              </div>
-            </div>
-            <Link to="/register-webinar" className="uni-event-register-btn">Register Now →</Link>
-          </div>
-        </div>
-      </section>
-
       {/* ══════════════════════════════════════════
           GoEd AI PRODUCT SECTION
           ══════════════════════════════════════════ */}
@@ -363,7 +321,7 @@ ${form.message || 'None'}
                 { n: '100%', l: 'Contact Rate' },
                 { n: '3×', l: 'Conversion Lift' },
                 { n: 'Instant', l: 'Response Time' },
-                { n: '3 Weeks', l: 'Go-Live' },
+                { n: '1 Week', l: 'Go-Live' },
               ].map(s => (
                 <div key={s.l} className="uni-goed-stat">
                   <div className="uni-goed-stat__num">{s.n}</div>
@@ -396,7 +354,7 @@ ${form.message || 'None'}
                   { n: 3, name: 'Engage', desc: 'AI conversations, 24×7' },
                   { n: 4, name: 'Qualify', desc: 'Lead gate + AI scoring' },
                   { n: 5, name: 'Convert', desc: 'AI summary + counsellor closes' },
-                  { n: 6, name: 'Enroll', desc: 'Fee, ERP, university portal' },
+                  { n: 6, name: 'Enroll', desc: 'Fee & university portal' },
                 ].map((s, i) => (
                   <div className="uni-lc-step" key={s.n}>
                     <div className="uni-lc-step__num">{s.n}</div>
@@ -435,7 +393,7 @@ ${form.message || 'None'}
                 { role: 'Director of Admissions', icon: '📊', desc: 'Live command centre. Every channel, every course, every counsellor — one view. AI Monday Insight tells you what to do next.' },
                 { role: 'Counsellors', icon: '📞', desc: 'Ranked lead list every morning — HOT / WARM / COLD. AI nudge on every lead with recommended opener and best call time.' },
                 { role: 'CFO / Owner', icon: '💰', desc: 'Cost per enrolled student, live. Marketing ROI by channel. CPA pricing — Zoxima\'s incentive aligned with your outcomes.' },
-                { role: 'IT Head', icon: '⚙️', desc: 'Microsoft Azure AI stack. DPDP-compliant. Integrates with Meritto, Zoho, Student ERP. 3-week Phase 1 go-live.' },
+                { role: 'IT Head', icon: '⚙️', desc: 'Microsoft Azure AI stack. Enterprise-grade security. Integrates with Meritto and Zoho. 1-week Phase 1 go-live.' },
               ].map(r => (
                 <div className="uni-role-card" key={r.role}>
                   <div className="uni-role-card__icon">{r.icon}</div>
@@ -616,10 +574,17 @@ ${form.message || 'None'}
             <h2 className="uni-section-title">Experience campus at its best.</h2>
           </div>
           <div className="uni-campus-grid">
-            {['State-of-art Labs', 'Sports Complex', 'Library & Research', 'Hostel & Food', 'Cultural Fests', 'Industry Visits'].map(item => (
-              <div className="uni-campus-card" key={item}>
-                <div className="uni-campus-card__icon">🏛️</div>
-                <span>{item}</span>
+            {[
+              { icon: '🔬', name: 'State-of-art Labs' },
+              { icon: '🏋️', name: 'Sports Complex' },
+              { icon: '📚', name: 'Library & Research' },
+              { icon: '🍽️', name: 'Hostel & Food' },
+              { icon: '🎉', name: 'Cultural Fests' },
+              { icon: '💼', name: 'Industry Visits' },
+            ].map(item => (
+              <div className="uni-campus-card" key={item.name}>
+                <div className="uni-campus-card__icon">{item.icon}</div>
+                <span>{item.name}</span>
               </div>
             ))}
           </div>

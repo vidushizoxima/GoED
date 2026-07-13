@@ -189,8 +189,33 @@
   border-color: var(--navy);
 }
 
-.social-link--ig:hover { color: #db2777; border-color: #db2777; }
-.social-link--fb:hover { color: #1d4ed8; border-color: #1d4ed8; }
+.social-link--ig {
+  border-color: rgba(225, 48, 108, 0.25);
+  background: linear-gradient(135deg, #fff0f5 0%, #fff 100%);
+}
+.social-link--ig svg {
+  color: #E1306C;
+  flex-shrink: 0;
+}
+.social-link--ig:hover {
+  color: #c2185b;
+  border-color: #E1306C;
+  background: linear-gradient(135deg, #ffe0ec 0%, #fff5f8 100%);
+}
+
+.social-link--fb {
+  border-color: rgba(24, 119, 242, 0.25);
+  background: linear-gradient(135deg, #f0f5ff 0%, #fff 100%);
+}
+.social-link--fb svg {
+  color: #1877F2;
+  flex-shrink: 0;
+}
+.social-link--fb:hover {
+  color: #1558b0;
+  border-color: #1877F2;
+  background: linear-gradient(135deg, #ddeeff 0%, #f0f6ff 100%);
+}
 
 /* Modal Styles */
 .modal-overlay {

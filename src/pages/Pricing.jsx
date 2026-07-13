@@ -64,11 +64,30 @@ const pricingPlans = [
 ];
 
 const faqs = [
-  { q: 'How quickly can we go live?', a: 'Phase 1 goes live in 3 weeks. This includes chatbot replacement, social media AI, WhatsApp agent, knowledge base, Meritto integration, AI scoring, counsellor nudges, and basic analytics. Phase 2 adds document automation, Zoho sync, ERP integration, and advanced analytics in 4 additional weeks.' },
-  { q: 'What do we need to provide?', a: 'For Phase 1: Meritto API access, WhatsApp Business number, Facebook/Instagram admin access, website embed access, and knowledge base content (brochures, fee structure, FAQ). For Phase 2: Zoho API, ERP details, university portal credentials, fee schedule, and document checklists.' },
-  { q: 'Does GoEd AI replace our CRM?', a: 'No. GoEd AI enriches your existing CRM (Meritto, LeadSquared, or any other). It adds AI scoring, nudges, and intelligence on top of your CRM — it doesn’t replace it.' },
-  { q: 'What about data security?', a: 'GoEd AI is built on Microsoft Azure AI with enterprise-grade security. Fully DPDP-compliant with complete conversation logs, document repository, and audit trails.' },
-  { q: 'Can we change plans later?', a: 'Yes. You can upgrade your plan during the admission cycle as your lead volume and student engagement needs grow.' },
+  {
+    q: 'Does GoEd AI have its own CRM, or does it work with ours?',
+    a: 'GoEd AI comes with its own built-in CRM — so you can go live without any existing system. If you already use Meritto, LeadSquared, or another platform, GoEd AI integrates directly with it, enriching your existing data with AI scoring, nudges, and real-time insights. You choose which mode works best for your institution.'
+  },
+  {
+    q: 'How quickly can we go live?',
+    a: 'Once you share all required credentials and access, deployment is guaranteed within 1 week. No delays, no dependencies on our end.'
+  },
+  {
+    q: 'What do we need to provide to get started?',
+    a: 'We need: (1) Website — access credentials, or we share a chatbot snippet your team adds manually. (2) Email — SMTP credentials (username, app password, from address, display name) for sending brochures and communication to students. (3) Social media — Instagram Account ID + Access Token, Facebook Page ID + Access Token. (4) WhatsApp — Phone Number ID and Permanent Access Token from WhatsApp Business API. Our team guides you through each step.'
+  },
+  {
+    q: 'What social media channels does GoEd AI connect to?',
+    a: 'GoEd AI connects to Instagram DMs and comments, Facebook Page messages, WhatsApp Business, and your website chat — all managed from one platform. Leads from every channel are captured, profiled, and pushed to CRM in under 5 minutes.'
+  },
+  {
+    q: 'What about data security?',
+    a: 'GoEd AI is built on Microsoft Azure AI — enterprise-grade infrastructure with full audit trails, conversation logs, and a document repository. All data is stored securely with role-based access controls and complete export capability.'
+  },
+  {
+    q: 'Can we change plans later?',
+    a: 'Yes. You can upgrade at any point during the admission cycle. Our team handles all transitions without disruption to live operations.'
+  },
 ];
 
 export default function Pricing() {
@@ -143,7 +162,7 @@ export default function Pricing() {
 
         <div style={{ textAlign: 'center', marginTop: 64, marginBottom: 80 }}>
           <p style={{ fontSize: 15, color: 'var(--gray-500)', marginBottom: 8 }}>Every institution is different. Let's scope yours — 30-minute call, no obligation.</p>
-          <p style={{ fontSize: 13, color: 'var(--gray-400)' }}>Phase 1 live in 3 weeks &middot; Phase 2 in 4 additional weeks &middot; No long-term lock-in</p>
+          <p style={{ fontSize: 13, color: 'var(--gray-400)' }}>Phase 1 live in 1 week &middot; Phase 2 in 4 additional weeks &middot; No long-term lock-in</p>
         </div>
 
         {/* FAQ Section */}

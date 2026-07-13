@@ -38,6 +38,12 @@
   align-items: center;
 }
 
+.navbar__end {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
 .navbar__link {
   font-size: 14px;
   font-weight: 500;
