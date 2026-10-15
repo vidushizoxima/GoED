@@ -39,6 +39,7 @@ export default function Explore() {
         },
         body: JSON.stringify({
           phone_number: `+91${phoneNumber}`,
+          trial_id: import.meta.env.VITE_CALL_TRIAL_ID || '63c081eb-b4bf-45df-947c-dfe866656490',
         }),
       });
 

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import useInView from '../components/useInView';
-import ChatbotWidget from '../components/ChatbotWidget';
+// import ChatbotWidget from '../components/ChatbotWidget'; // Home chatbot disabled - uncomment to restore
 import './Home.css';
 
 const storyChapters = [
@@ -203,7 +203,7 @@ export default function Home() {
       const response = await fetch(import.meta.env.VITE_OUTBOUND_CALL_API, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ phone_number: `+91${phoneNumber}` }),
+        body: JSON.stringify({ phone_number: `+91${phoneNumber}`, trial_id: import.meta.env.VITE_CALL_TRIAL_ID || '63c081eb-b4bf-45df-947c-dfe866656490' }),
       });
       const data = await response.json();
       if (response.ok && (data.status === 'success' || data.message || true)) {
@@ -242,7 +242,7 @@ export default function Home() {
   const pillars = [{ icon: 'M', cls: 'pillar-icon--marketing', title: 'Better marketing results', features: ['Outbound calling agent — generate leads proactively', 'WhatsApp broadcast — 1,000 leads activated before lunch', 'Source ROI tracking by channel', 'AI Monday Insight — weekly budget recommendation', 'Seat-aware course intelligence'] }, { icon: 'C', cls: 'pillar-icon--conversion', title: 'More conversions, every channel', features: ['Facebook + Instagram DMs in under 5 minutes — even 10 PM', 'WhatsApp AI agent — 24×7, full conversational', 'Website chat answering 11 PM queries', 'AI lead scoring — right leads, right order', '7-day nurture — no lead goes cold'] }, { icon: 'O', cls: 'pillar-icon--operations', title: 'Sales & admission operations', features: ['Counsellor AI nudges — opener, best time to call', 'Document collection + OCR verification', 'Fee automation — Zoho sync, instalments', 'Registrar automation — university portal submissions', 'Meritto & Zoho — fully connected'] }];
 
   return (<>
-    <ChatbotWidget />
+    {/* <ChatbotWidget /> */}{/* Home chatbot disabled - uncomment to restore */}
     <section className="hero-banner-wrapper">
       <div className="hero-bg-carousel">
         {heroBgs.map((bg, idx) => (

@@ -34,7 +34,7 @@ export default function LiveDemo() {
     emailjs.init(EMAILJS_PUBLIC_KEY);
   }, []);
 
-  const whatsappNumber = import.meta.env.VITE_WHATSAPP_PHONE || '9217959828';
+  const whatsappNumber = `91${import.meta.env.VITE_WHATSAPP_PHONE || '9599559646'}`;
   const whatsappMsg = "Hi, I'd like to try the GoEd AI demo!";
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMsg)}`;
 
@@ -70,7 +70,8 @@ export default function LiveDemo() {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          phone_number: `+91${phoneNumber}`
+          phone_number: `+91${phoneNumber}`,
+          trial_id: import.meta.env.VITE_CALL_TRIAL_ID || '63c081eb-b4bf-45df-947c-dfe866656490'
         }),
       });
 

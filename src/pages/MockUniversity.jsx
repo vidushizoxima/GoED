@@ -21,7 +21,7 @@ export default function MockUniversity() {
   useEffect(() => {
     // Load the external chatbot script
     const script = document.createElement('script');
-    script.src = "https://zx-edu-ai.centralindia.cloudapp.azure.com/widget/chatbot-widget.min.js";
+    script.src = "https://go-ed-ai-prod-f3a6bbgwdzdmhwce.southindia-01.azurewebsites.net/widget/chatbot-widget.min.js";
     script.async = true;
 
     emailjs.init('JPwcMlF2YMicwIxbz');
@@ -29,7 +29,42 @@ export default function MockUniversity() {
     script.onload = () => {
       if (window.mainChatbotWidget) {
         window.mainChatbotWidget.init({
-          trialId: '63c081eb-b4bf-45df-947c-dfe866656490'
+          trialId: '63c081eb-b4bf-45df-947c-dfe866656490',
+
+          // Styling & Theme Options
+          theme: "light",
+          primaryColor: "#6366F1",
+          position: "bottom-right",
+          width: "500px",
+          height: "800px",
+
+          // Position offsets from container edge (Desktop only)
+          x: 0,
+          y: 0,
+
+          // Branding & Text Content
+          collegeName: "Zoxima University Assistant",
+          placeholder: "Type your message...",
+          greeting: `👋 Hey! Welcome to Zoxima University.
+
+I'm Zoxima University Genie.
+
+At Zoxima University, we focus on quality education, industry exposure, career development, and helping students build successful futures.
+
+Feel free to ask me anything about the courses, admissions, fees, placements, scholarships, campus life, or career opportunities.
+
+May I know your name and contact number?`,
+
+          // Session Expiration
+          sessionExpiryDays: 7,
+
+          // Launcher Bubble
+          launcherInterval: 5000,
+          launcherMessages: [
+            "Hey! Need help with admissions? 👋",
+            "Have questions about courses? 📚",
+            "Chat with Zoxima University Assistant! ⚡"
+          ]
         });
 
         setTimeout(() => {
@@ -155,7 +190,8 @@ ${form.message || 'None'}
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          phone_number: `+91${callingNumber}`
+          phone_number: `+91${callingNumber}`,
+          trial_id: import.meta.env.VITE_CALL_TRIAL_ID || '63c081eb-b4bf-45df-947c-dfe866656490'
         })
       });
 
@@ -191,7 +227,7 @@ ${form.message || 'None'}
       title: 'WhatsApp',
       desc: 'Chat with our AI agent on WhatsApp. Experience 24×7 automated admissions engagement.',
       action: 'Open WhatsApp',
-      actionFn: () => window.open('https://wa.me/919217959828?text=Hi%2C%20I%20want%20to%20know%20about%20Zoxima%20University%20admissions', '_blank'),
+      actionFn: () => window.open(`https://wa.me/91${import.meta.env.VITE_WHATSAPP_PHONE || '9599559646'}?text=Hi%2C%20I%20want%20to%20know%20about%20Zoxima%20University%20admissions`, '_blank'),
     },
     {
       id: 'calling',
