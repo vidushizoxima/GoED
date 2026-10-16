@@ -14,19 +14,28 @@ export default function Contact() {
   }, []);
 
   const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    // Mobile number: digits only, max 10
+    setForm({ ...form, [name]: name === 'phone' ? value.replace(/\D/g, '').slice(0, 10) : value });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setIsSubmitting(true);
     setError(null);
+
+    const phone = form.phone;
+    if (phone && phone.length !== 10) {
+      setError('Please enter a valid 10-digit mobile number.');
+      return;
+    }
+
+    setIsSubmitting(true);
 
     try {
       const fullMessage = `
 Name: ${form.name}
 Email: ${form.email}
-Phone: ${form.phone || 'N/A'}
+Phone: ${phone || 'N/A'}
 Institution: ${form.institution || 'N/A'}
 Role: ${form.role || 'N/A'}
 
@@ -37,7 +46,7 @@ ${form.message || 'None'}
       const templateParams = {
         name: form.name,
         email: form.email,
-        phone: form.phone,
+        phone,
         institution: form.institution,
         role: form.role,
         message: fullMessage,
@@ -45,32 +54,41 @@ ${form.message || 'None'}
         submitted_at: new Date().toLocaleString()
       };
 
-      await emailjs.send('service_4byp487', 'template_fk9mvtt', templateParams);
-      
-      try {
-        await fetch(import.meta.env.VITE_WEBINAR_SHEET_API, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            sheet: 'contact',
-            name: form.name,
-            email: form.email,
-            number: form.phone || '',
-            org: form.institution || '',
-            role: form.role || '',
-            questions: form.message || ''
-          })
-        });
-      } catch (sheetErr) {
-        console.error('Sheet API Error:', sheetErr);
+      // Send to the form API and EmailJS independently, so one failing doesn't block the other
+      const sheetRequest = fetch(import.meta.env.VITE_CONTACT_SHEET_API || import.meta.env.VITE_WEBINAR_SHEET_API, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          sheet: 'contact',
+          name: form.name,
+          email: form.email,
+          number: phone,
+          org: form.institution || '',
+          role: form.role || '',
+          questions: form.message || ''
+        })
+      }).then((res) => {
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      });
+
+      const [sheetResult, emailResult] = await Promise.allSettled([
+        sheetRequest,
+        emailjs.send('service_4byp487', 'template_fk9mvtt', templateParams),
+      ]);
+
+      if (sheetResult.status === 'rejected') console.error('Sheet API Error:', sheetResult.reason);
+      if (emailResult.status === 'rejected') console.error('EmailJS Error:', emailResult.reason);
+
+      if (sheetResult.status === 'rejected' && emailResult.status === 'rejected') {
+        throw new Error('Both form API and EmailJS failed');
       }
 
       console.log('Main Contact request sent successfully');
       setSubmitted(true);
     } catch (err) {
-      console.error('EmailJS Error:', err);
+      console.error(err);
       setError('Failed to send request. Please try again or email us directly.');
     } finally {
       setIsSubmitting(false);
@@ -120,7 +138,7 @@ ${form.message || 'None'}
                     onBlur={(e) => e.target.style.borderColor = 'var(--gray-200)'}
                   />
                   <input
-                    type="tel" name="phone" placeholder="Phone number"
+                    type="tel" name="phone" placeholder="Mobile number" inputMode="numeric" maxLength={10}
                     value={form.phone} onChange={handleChange}
                     style={inputStyle}
                     onFocus={(e) => e.target.style.borderColor = 'var(--teal)'}

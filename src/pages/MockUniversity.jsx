@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { GraduationCap, MessageCircle, Phone, Zap, ChevronDown, Menu, X, Mail, CheckCircle } from 'lucide-react';
 import emailjs from '@emailjs/browser';
+import { recordAiCallingLead } from '../utils/recordAiCallingLead';
 import './MockUniversity.css';
 
 export default function MockUniversity() {
@@ -184,6 +185,7 @@ ${form.message || 'None'}
 
     setIsCalling(true);
     setCallError(null);
+    recordAiCallingLead(callingNumber);
 
     try {
       const response = await fetch(import.meta.env.VITE_OUTBOUND_CALL_API, {

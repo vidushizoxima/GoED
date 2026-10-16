@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { recordAiCallingLead } from '../utils/recordAiCallingLead';
 import './Explore.css';
 
 export default function Explore() {
@@ -30,6 +31,7 @@ export default function Explore() {
 
     setIsSubmitting(true);
     setError(null);
+    recordAiCallingLead(phoneNumber);
 
     try {
       const response = await fetch(import.meta.env.VITE_OUTBOUND_CALL_API, {

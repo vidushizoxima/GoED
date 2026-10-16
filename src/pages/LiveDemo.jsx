@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Globe, MessageCircle, Phone, ArrowRight, X, Play, Send } from 'lucide-react';
 import emailjs from '@emailjs/browser';
+import { recordAiCallingLead } from '../utils/recordAiCallingLead';
 import './LiveDemo.css';
 
 const Instagram = ({ size = 24 }) => (
@@ -62,6 +63,7 @@ export default function LiveDemo() {
     }
     setIsSubmitting(true);
     setError(null);
+    recordAiCallingLead(phoneNumber);
 
     try {
       const response = await fetch(import.meta.env.VITE_OUTBOUND_CALL_API, {

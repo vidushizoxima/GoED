@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import useInView from '../components/useInView';
+import { recordAiCallingLead } from '../utils/recordAiCallingLead';
 // import ChatbotWidget from '../components/ChatbotWidget'; // Home chatbot disabled - uncomment to restore
 import './Home.css';
 
@@ -202,6 +203,7 @@ export default function Home() {
     }
     setIsSubmitting(true);
     setCallError(null);
+    recordAiCallingLead(phoneNumber);
     try {
       const response = await fetch(import.meta.env.VITE_OUTBOUND_CALL_API, {
         method: 'POST',
