@@ -15,8 +15,8 @@ import Contact from './pages/Contact';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import Explore from './pages/Explore';
 import BlogPost from './pages/BlogPost';
-import LiveDemo from './pages/LiveDemo';
-import MockUniversity from './pages/MockUniversity';
+// import LiveDemo from './pages/LiveDemo'; // demo page disabled
+// import MockUniversity from './pages/MockUniversity'; // demo page disabled
 
 export default function App() {
   return (
@@ -38,8 +38,10 @@ export default function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/explore" element={<Explore />} />
-          <Route path="/demo" element={<LiveDemo />} />
-          <Route path="/demo/university" element={<MockUniversity />} />
+          {/* Demo pages disabled - uncomment to restore */}
+          {/* <Route path="/demo" element={<LiveDemo />} /> */}
+          {/* <Route path="/demo/university" element={<MockUniversity />} /> */}
+          <Route path="/demo/*" element={<Navigate to="/" replace />} />
         </Routes>
       </main>
       <Footer />

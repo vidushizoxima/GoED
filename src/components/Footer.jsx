@@ -37,7 +37,7 @@ export default function Footer() {
 
           <div className="footer__col">
             <h4>Product</h4>
-            <Link to="/demo">Live Demo</Link>
+            {/* <Link to="/demo">Live Demo</Link> */}
             <Link to="/pricing">Pricing</Link>
           </div>
 

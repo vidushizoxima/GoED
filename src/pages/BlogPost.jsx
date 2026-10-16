@@ -126,7 +126,7 @@ export default function BlogPost() {
               <div className="blog-cta-card">
                 <h3>Ready to transform your admissions?</h3>
                 <p>See exactly how GoEd AI can automate your outreach and increase conversions for your specific courses.</p>
-                <Link to="/demo" className="btn btn-primary" style={{ width: '100%', justifyContent: 'center' }}>Live Demo</Link>
+                {/* <Link to="/demo" className="btn btn-primary" style={{ width: '100%', justifyContent: 'center' }}>Live Demo</Link> */}
               </div>
 
               <div className="blog-share-card">

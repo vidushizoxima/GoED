@@ -148,7 +148,7 @@ export default function ForYourRole() {
       <section style={{ padding: '64px 0', background: 'var(--navy)', textAlign: 'center' }}>
         <div className="container">
           <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 32, color: '#fff', marginBottom: 16 }}>See GoEd AI working for your role.</h2>
-          <Link to="/demo" className="btn btn-primary btn-lg">Live Demo</Link>
+          {/* <Link to="/demo" className="btn btn-primary btn-lg">Live Demo</Link> */}
         </div>
       </section>
     </div>

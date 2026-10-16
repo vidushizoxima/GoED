@@ -144,7 +144,7 @@ export default function Features() {
               Seven stages. One connected platform. Zero leads left behind.
             </p>
             <div className="feat-hero__actions">
-              <Link to="/demo" className="btn btn-primary btn-lg">See it live</Link>
+              {/* <Link to="/demo" className="btn btn-primary btn-lg">See it live</Link> */}
               <Link to="/pricing" className="btn btn-outline-white btn-lg">View pricing</Link>
             </div>
           </FadeIn>
@@ -242,7 +242,7 @@ export default function Features() {
 
           <FadeIn delay={0.3}>
             <div className="feat-epilogue__actions">
-              <Link to="/demo" className="btn btn-primary btn-lg">Live Demo</Link>
+              {/* <Link to="/demo" className="btn btn-primary btn-lg">Live Demo</Link> */}
               <Link to="/results" className="btn btn-outline-white btn-lg">Read the case study</Link>
             </div>
           </FadeIn>

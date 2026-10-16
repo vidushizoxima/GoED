@@ -164,6 +164,9 @@ const roles = {
 const roleKeys = ['director', 'counsellor', 'cfo', 'it'];
 const tabLabels = { director: 'Director', counsellor: 'Counsellor', cfo: 'CFO / Owner', it: 'IT Head' };
 
+// Voice agent "Talk to GoEd AI" section on the homepage — set to true to show it again
+const SHOW_VOICE_AGENT_SECTION = false;
+
 export default function Home() {
   const [dashTab, setDashTab] = useState('marketing');
   const [activeRole, setActiveRole] = useState('director');
@@ -255,7 +258,7 @@ export default function Home() {
         <h1 className="hero__title">Every lead <em>found.</em><br />Every lead <em>engaged.</em><br />Every lead <em>converted.</em></h1>
         <p className="hero__sub">So your <strong>counsellors convert 3× more</strong> — and your Director sees every number, live.</p>
 
-        <div className="hero__actions"><Link to="/demo" className="btn btn-primary">Live Demo</Link><a href="#videos" className="btn btn-secondary">Watch It Work</a></div>
+        <div className="hero__actions">{/* <Link to="/demo" className="btn btn-primary">Live Demo</Link> */}<a href="#videos" className="btn btn-secondary">Watch It Work</a></div>
         <div className="hero__proof">{[{ n: '100%', l: 'Contact rate' }, { n: '3×', l: 'Conversion lift' }, { n: 'Instant', l: 'Response time' }, { n: '1 week', l: 'Go-live' }].map(p => (<div key={p.l} className="hero__proof-item"><div className="hero__proof-num">{p.n}</div><div className="hero__proof-label">{p.l}</div></div>))}</div>
       </div></div>
     </section>
@@ -438,11 +441,13 @@ export default function Home() {
 
     <section className="section proof-section"><div className="container"><div className="proof__inner"><FadeIn><div><span className="badge badge-navy">Proven at IMT Nagpur</span><h2 className="proof__title">Proven Results at IMT</h2><p>At IMT Nagpur, GoEd AI replaced manual follow-up and disconnected systems. The platform went full scale live in just 1 week.</p><blockquote className="proof__quote">“We went from chasing leads to having AI-qualified, scored leads on every counsellor’s screen every morning.”</blockquote></div></FadeIn><FadeIn delay={0.2}><div className="proof__stats">{[{ n: '100%', l: 'Contact rate', c: 'var(--teal)' }, { n: '3×', l: 'Conversion improvement', c: 'var(--amber-dark)' }, { n: 'Instant', l: 'Response time', c: '#8b5cf6' }, { n: '1 week', l: 'Live in record time', c: 'var(--navy)' }].map(s => (<div key={s.n} className="proof__stat-card"><div className="proof__stat-num" style={{ color: s.c }}>{s.n}</div><div className="proof__stat-desc">{s.l}</div></div>))}</div></FadeIn></div></div></section>
 
+    {SHOW_VOICE_AGENT_SECTION && (
     <section className="agent-cta">
       <div className="container">
         <h2 className="text-display">Talk to GoEd AI. Right now.</h2>
         <p className="agent-cta__sub">This is the same AI your students will experience.</p>
         <div className="agent-modes">
+          {/* "Chat now" web agent card disabled - uncomment to restore
           <a href="/demo/university" className="agent-mode" style={{ textDecoration: 'none' }}>
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" strokeWidth="2">
               <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
@@ -450,6 +455,7 @@ export default function Home() {
             <h4>Chat now</h4>
             <p>Experience the Web Agent</p>
           </a>
+          */}
           <button onClick={handleOpenCallingModal} className="agent-mode">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--amber-dark)" strokeWidth="2">
               <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.5 19.5 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.5 19.5 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
@@ -457,6 +463,7 @@ export default function Home() {
             <h4>Get a call</h4>
             <p>Direct call from our admission team</p>
           </button>
+          {/* WhatsApp bot card disabled - uncomment to restore
           <a href={`https://wa.me/91${import.meta.env.VITE_WHATSAPP_PHONE}`} target="_blank" rel="noopener noreferrer" className="agent-mode">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="var(--green)">
               <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" /><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.832-1.438A9.955 9.955 0 0 0 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18a7.96 7.96 0 0 1-4.106-1.138l-.294-.176-2.86.85.85-2.86-.176-.294A7.96 7.96 0 0 1 4 12c0-4.411 3.589-8 8-8s8 3.589 8 8-3.589 8-8 8z" />
@@ -464,10 +471,12 @@ export default function Home() {
             <h4>WhatsApp</h4>
             <p>Continue on your phone</p>
           </a>
+          */}
         </div>
-        <Link to="/demo" className="btn btn-primary btn-lg">Live Demo</Link>
+        {/* <Link to="/demo" className="btn btn-primary btn-lg">Live Demo</Link> */}
       </div>
     </section>
+    )}
 
     {isCallingModalOpen && (
       <div className="modal-overlay" onClick={closeCallingModal}>

@@ -133,7 +133,7 @@ export default function LiveDemos() {
         <div className="container">
           <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 32, color: '#fff', marginBottom: 16 }}>Want to experience it yourself?</h2>
           <p style={{ color: 'rgba(255,255,255,.6)', marginBottom: 24 }}>Chat, call, or WhatsApp — talk to GoEd AI right now.</p>
-          <Link to="/demo" className="btn btn-primary btn-lg">Live Demo</Link>
+          {/* <Link to="/demo" className="btn btn-primary btn-lg">Live Demo</Link> */}
         </div>
       </section>
     </div>

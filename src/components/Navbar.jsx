@@ -46,9 +46,11 @@ export default function Navbar() {
         </div>
 
         <div className="navbar__end">
+          {/* Try for Free disabled - uncomment to restore
           <Link to="/demo" className="btn btn-navy btn-sm navbar__cta">
             Try for Free
           </Link>
+          */}
           <button
             className={`navbar__mobile-btn ${mobileOpen ? 'navbar__mobile-btn--open' : ''}`}
             onClick={() => setMobileOpen(!mobileOpen)}
